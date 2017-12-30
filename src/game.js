@@ -13,8 +13,8 @@ Game.prototype.getSnake=function() {
   return snake;
 }
 
-Game.prototype.updateScore=function(score) {
-  this.snake.updateScore(score);
+Game.prototype.updateScore=function() {
+  this.snake.updateScore(this.food.getGrowthFactor());
 }
 
 Game.prototype.getScore=function(){
