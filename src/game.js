@@ -13,6 +13,14 @@ Game.prototype.getSnake=function() {
   return snake;
 }
 
+Game.prototype.updateScore=function(score) {
+  this.snake.updateScore(score);
+}
+
+Game.prototype.getScore=function(){
+  return this.snake.getScore();
+}
+
 Game.prototype.turnLeft=function() {
   return this.snake.turnLeft();
 }

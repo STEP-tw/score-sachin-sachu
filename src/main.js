@@ -11,10 +11,16 @@ const animateSnake=function() {
   unpaintSnake(details.oldTail);
   paintHead(details.head);
   if(game.hasSnakeEatenFood()) {
+    game.updateScore(10);
+    displayScore(game.getScore());
     game.grow();
     game.createFood();
     drawFood(game.getFood());
   }
+}
+
+const displayScore=function(score){
+    document.getElementById("score").innerText=score;
 }
 
 const changeSnakeDirection=function(event) {
