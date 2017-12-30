@@ -54,7 +54,12 @@ Game.prototype.hasSnakeEatenFood=function() {
 Game.prototype.createFood=function() {
   console.log(this.bottomRight);
   let position=generateRandomPosition(this.bottomRight.x,this.bottomRight.y);
+  let growthFactor=10;
+  let superFood=false;
+  this.food=new Food(position,growthFactor,superFood);
+}
 
+const generateGrowthFactor=function(){
   let random=generateRandomNumberBetween(0,10);
   let growthFactor=1;
   let superFood=false;
@@ -62,5 +67,8 @@ Game.prototype.createFood=function() {
     growthFactor=10;
     superFood=true;
   }
-  this.food=new Food(position,growthFactor,superFood);
+  return {
+    growthFactor:growthFactor,
+    superFood:superFood
+  };
 }
